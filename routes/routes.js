@@ -1,12 +1,14 @@
 const express = require('express');
+const Mahasiswa = require('../models/Mahasiswa');
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    return res.send('Hello Worlds');
-});
-
-router.get('/hello', (req, res) => {
-    return res.send(`Hello ${req.query.name ?? 'World'}`);
+router.get('/', async (req, res) => {
+    try {
+        const mahasiswa = await Mahasiswa.find();
+        res.json(mahasiswa);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
 });
 
 module.exports = router;

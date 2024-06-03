@@ -4,10 +4,15 @@ const app = express();
 
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb://0.0.0.0:27017/mahasiswa").then(() => {
-    console.log("Connected to MongoDB");
-}).catch((err) => {
-    console.log("Failed to connect to MongoDB: ", err);
+mongoose.connect("mongodb://0.0.0.0:27017/belajar_mongodb2")
+const database = mongoose.connection;
+
+database.on('error', (error) => {
+  console.log("Failed to connect to MongoDB: ", error);
+});
+
+database.once('connected', () => {
+  console.log("Connected to MongoDB");
 });
 
 app.use("/", router);
