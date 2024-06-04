@@ -11,4 +11,6 @@ nodemon server.js
 
 Setelah itu local server akan berjalan di port 3000
 
+
+kita coba ubah dikit ngga sih hehe
 http://localhost:3000
