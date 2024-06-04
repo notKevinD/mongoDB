@@ -2,9 +2,11 @@ const express = require("express");
 const router = require("./routes/routes");
 const app = express();
 
+app.use(express.json());
+
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb://0.0.0.0:27017/belajar_mongodb2")
+mongoose.connect("mongodb://0.0.0.0:27017/belajarMongodb2")
 const database = mongoose.connection;
 
 database.on('error', (error) => {
